@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom'
 
-export default class ChannelCard extends Component {
-  render() {
+const ChannelCard = (props) => {
     return (
-        <Link to={{pathname: `/channel/:${this.props.channel.channelName}`, channel: this.props.channel}}>
-            <h2>{this.props.channel.channelName}</h2>
-            <img src={this.props.channel.channelIcon}></img>
-            <h1>{this.props.channel.programme.title}</h1>
+        <Link to={{pathname: `/channel/:${props.channel.channelName}`, data: props}}>
+            <h2>{props.channel.channelName}</h2>
+            <img src={props.channel.channelIcon}></img>
+            <h1>{props.channel.programme.title}</h1>
         </Link>  
 
     )
-  }
 }
+export default ChannelCard

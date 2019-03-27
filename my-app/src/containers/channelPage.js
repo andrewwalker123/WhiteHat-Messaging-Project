@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class ChannelPage extends Component {
-  render() {
-      console.log('specific channel view channel props passed with Link', this.props.location.channel)
+const ChannelPage = (props) => {
+  console.log(props)
     return (
       <div>
-        <h2>{this.props.location.channel.channelName}</h2>
-        <img src={this.props.location.channel.channelIcon}></img>
-        <h1>{this.props.location.channel.programme.title}</h1>    
+        <h2>{props.location.data.channel.channelName}</h2>
+        <img src={props.location.data.channel.channelIcon}></img>
+        <h1>{props.location.data.channel.programme.title}</h1>    
       </div>
     )
-  }
 }
+export default ChannelPage
