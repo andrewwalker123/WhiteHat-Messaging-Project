@@ -31,6 +31,10 @@ class MessageList extends Component {
       }]})
   };
 
+  handleChange = (event) => {
+    this.setState({newMessage: event.target.value})
+  };
+
   render() {
     return (
       <div className="bg-washed-blue">
@@ -43,7 +47,7 @@ class MessageList extends Component {
         </div>
         <div>
           <form className="w-100 flex sans-serif ma0 ba fixed" style={{bottom:0}} onSubmit={this.handleSubmit} >
-            <input className="bg-white w-80" type="text" placeholder="Write a message here" onChange={event => this.setState({newMessage: event.target.value})}/>
+            <input className="bg-white w-80" type="text" placeholder="Write a message here" onChange={this.handleChange}/>
             <button className="bg-blue white w-20 pa3">SEND</button>
           </form>
         </div>
