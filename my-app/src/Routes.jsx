@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
-
-import  MessagePage  from './containers/messagePage';
+import MessageView  from './containers/messageView';
 import LoginPage from './containers/loginPage';
-import ChannelListPage from './containers/ChannelListPage';
+import ChannelListPage from './containers/channelListPage';
 import Channel from './containers/channelPage';
 
 export default class Routes extends Component {
 
   state = {
     user: ""
-  }
+  };
   setUser = (userName) => {
     this.setState({
       user: userName
     })
-  }
+  };
 
   render() {
 
@@ -24,9 +23,9 @@ export default class Routes extends Component {
         <BrowserRouter>
           <div>
             <Switch>
-              <Route 
-                exact 
-                path="/" 
+              <Route
+                exact
+                path="/"
                 render={() => {
                   if (this.state.user) {
                     return <ChannelListPage username={this.state.user}/>;
@@ -35,10 +34,9 @@ export default class Routes extends Component {
                   }
                 }}
                 />
-              {/* <Route exact path="/channel" component={ChannelListPage} username={userName}/> */}
-              <Route exact path="/channel" render={(props) => <ChannelListPage username={this.state.user} {...props} /> }/> 
+              <Route exact path="/channel" render={(props) => <ChannelListPage username={this.state.user} {...props} /> }/>
               <Route exact path="/channel/:channel" render={(props) => <Channel username={this.state.user} {...props} /> } />
-              <Route exact path="/channel/:channel/chat" render={(props) => <MessagePage username={this.state.user} {...props} /> } />
+              <Route exact path="/channel/:channel/chat" render={(props) => <MessageView username={this.state.user} {...props} /> } />
               <Redirect to="/" />
             </Switch>
           </div>
