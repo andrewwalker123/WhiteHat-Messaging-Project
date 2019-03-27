@@ -6,7 +6,7 @@ export default class ChannelListPage extends Component {
         super(props)
         this.state = {
             channelArray: [],
-            username: this.props.location.username
+            username: this.props.username
         }
     }
     componentDidMount() {
@@ -19,7 +19,7 @@ export default class ChannelListPage extends Component {
   render() {
     return (
         <div>
-            <h1>Hello {this.props.location.username}</h1>
+            <h1>Hello {this.state.username}</h1>
             {this.state.channelArray.map(channel => {
                     return <ChannelCard channel={channel} username={this.state.username}/>
             })}
