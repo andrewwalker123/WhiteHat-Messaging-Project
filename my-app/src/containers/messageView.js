@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import MessageList from "../components/messageList";
 
-function MessageView() {
-  return (
-    <MessageList />
-  )
+class MessageView extends Component  {
+  render(){
+    return(
+      <MessageList username={this.props.username} />
+    )
+  }
 }
 
 export default MessageView;
