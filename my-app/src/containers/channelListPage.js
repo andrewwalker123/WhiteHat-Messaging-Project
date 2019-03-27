@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ChannelCard from '../components/ChannelCard'
+import ChannelCard from '../components/channelCard'
 
 export default class ChannelListPage extends Component {
     constructor(props) {
