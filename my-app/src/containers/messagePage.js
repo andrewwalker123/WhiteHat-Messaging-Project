@@ -16,7 +16,6 @@ class MessagePage extends Component {
   }
 
   render() {
-    console.log(this.state.messagesList)
     return (
       <div className="bg-washed-blue">
        <Header headerTitle='Messages'/>

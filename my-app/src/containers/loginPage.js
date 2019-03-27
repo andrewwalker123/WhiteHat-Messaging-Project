@@ -12,7 +12,12 @@ export default class LoginPage extends Component {
     }
     onChangeHandler = (event) => {
         this.setState({username: event.target.value})
+
     }
+    handleClick = () => {
+        this.props.setUser(this.state.username)
+    }
+
     render() {
         return (
             <div className="bg-washed-blue">
@@ -20,8 +25,8 @@ export default class LoginPage extends Component {
                  <Body>
                     <p>Welcome to Sky Chat. Enter your name below and start chatting.</p>
                     <input type='text' value={this.state.username} onChange={this.onChangeHandler}></input>
-                    <Link to={{pathname: `/channel`, username: this.state.username}}>
-                      <button>Login</button>
+                    <Link to={{pathname: `/channel`}}>
+                        <button onClick={this.handleClick}>Login</button>
                     </Link>
                   </Body>
             </div>
