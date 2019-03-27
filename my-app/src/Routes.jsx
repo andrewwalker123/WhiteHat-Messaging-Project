@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 
-import  MessagePage  from './containers/messagePage';
+import  MessageView  from './containers/messageView';
 import LoginPage from './containers/loginPage';
 import ChannelList from './containers/channelList';
 import Channel from './containers/channelPage';
@@ -18,9 +18,9 @@ export default class Routes extends Component {
         <BrowserRouter>
           <div>
             <Switch>
-              <Route 
-                exact 
-                path="/" 
+              <Route
+                exact
+                path="/"
                 render={() => {
                   if (this.state.user) {
                     return <ChannelList />;
@@ -30,7 +30,7 @@ export default class Routes extends Component {
                 }}
                 />
               <Route exact path="/channel/:channel" component={Channel} />
-              <Route exact path="/channel/:channel/chat" component={MessagePage} />
+              <Route exact path="/channel/:channel/chat" component={MessageView} />
               <Redirect to="/" />
             </Switch>
           </div>
