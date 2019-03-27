@@ -23,11 +23,15 @@ export default class LoginPage extends Component {
             <div className="bg-washed-blue">
                  <Header headerTitle='Login'/>
                  <Body>
-                    <p>Welcome to Sky Chat. Enter your name below and start chatting.</p>
-                    <input type='text' value={this.state.username} onChange={this.onChangeHandler}></input>
+                     <div className='v-mid bg-light-blue mw7 center pa4 br2-ns ba b--black-10 items-centre'>
+                    <p className='pa0 f5 f4-ns mb3 black-80'>Welcome to Sky Chat. Enter your name below and start chatting.</p>
+                    <div className='pv4'>
+                    <input type='text'className="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns" placeholder="Username" value={this.state.username} onChange={this.onChangeHandler}></input>
                     <Link to={{pathname: `/channel`}}>
-                        <button onClick={this.handleClick}>Login</button>
+                        <button className='f6 f5-l button-reset fl pv3 tc bn bg-animate bg-black-70 hover-bg-black white pointer w-100 w-25-m w-20-l br2-ns br--right-ns' onClick={this.handleClick}>Login</button>
                     </Link>
+                    </div>
+                    </div>
                   </Body>
             </div>
         );
