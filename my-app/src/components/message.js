@@ -6,13 +6,17 @@ class Message extends Component {
     let date = new Date(this.props.messageInfo.timePosted);
     let hours = date.getHours();
     let minutes = date.getMinutes();
+    if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
     return `${hours} : ${minutes}`
   };
+
 
     render() {
       return (
         <div>
-        {this.props.messageInfo.myMessage === true ? (
+        {this.props.messageInfo.userName === this.props.myUserName ? (
                 <div>
                     <div className="flex justify-end">
                         <p className="bg-blue w-60 white tr br4 pa3">{this.props.messageInfo.message}</p>
