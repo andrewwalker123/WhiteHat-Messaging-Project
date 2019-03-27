@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Message from './components/message';
+import Message from '../components/message';
 
-class App extends Component {
+class MessagePage extends Component {
 
   state = {
     newMessage: "Write a message here",
@@ -49,4 +49,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default MessagePage;
