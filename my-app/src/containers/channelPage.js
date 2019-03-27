@@ -1,11 +1,13 @@
 import React from 'react';
 
-function Channel(){
+const ChannelPage = (props) => {
+  console.log(props)
     return (
-      <div className="bg-washed-blue">
-        <h1 className="white bg-blue w-100 sans-serif ma0 pa2 fixed pl3">Channel</h1>
+      <div>
+        <h2>{props.location.data.channel.channelName}</h2>
+        <img src={props.location.data.channel.channelIcon}></img>
+        <h1>{props.location.data.channel.programme.title}</h1>    
       </div>
-    );
+    )
 }
-
-export default Channel;
+export default ChannelPage
