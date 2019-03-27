@@ -21,11 +21,13 @@ class MessageList extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    {this.state.newMessage && 
     this.setState({messagesList: [...this.state.messagesList, {
         userName: this.props.username,
         timePosted: Date.now(),
         message: this.state.newMessage
       }]})
+    }
   };
 
   handleChange = (event) => {
