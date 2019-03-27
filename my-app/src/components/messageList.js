@@ -4,18 +4,17 @@ import Message from './message';
 class MessageList extends Component {
 
   state = {
-
     newMessage: "",
     messagesList: [
       {
       userName: 'Ralf',
-      timePosted: 1553696152,
+      timePosted: Date.now(),
       myMessage: false,
       message: 'here is someone\'s message'
     },
       {
         userName: 'Caroline',
-        timePosted: 1553696152,
+        timePosted: Date.now(),
         myMessage: true,
         message: 'here is my message'
       }
@@ -26,7 +25,7 @@ class MessageList extends Component {
     event.preventDefault();
     this.setState({messagesList: [...this.state.messagesList, {
         userName: 'Caroline',
-        timePosted: 1553696152,
+        timePosted: Date.now(),
         myMessage: true,
         message: this.state.newMessage
       }]})

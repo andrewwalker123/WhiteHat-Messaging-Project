@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
-import  MessageView  from './containers/messageView';
-import LoginPage from './containers/LoginPage';
-import ChannelListPage from './containers/ChannelListPage';
-import Channel from './containers/ChannelPage';
+import MessageView  from './containers/messageView';
+import LoginPage from './containers/loginPage';
+import ChannelListPage from './containers/channelListPage';
+import Channel from './containers/channelPage';
 
 export default class Routes extends Component {
 

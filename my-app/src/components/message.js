@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Message extends Component {
 
   convertTime = () => {
-    let date = new Date(this.props.messageInfo.timePosted * 1000);
+    let date = new Date(this.props.messageInfo.timePosted);
     let hours = date.getHours();
     let minutes = date.getMinutes();
     return `${hours} : ${minutes}`
