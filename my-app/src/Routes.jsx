@@ -11,8 +11,14 @@ export default class Routes extends Component {
   state = {
     user: ""
   }
+  setUser = (userName) => {
+    this.setState({
+      user: userName
+    })
+  }
 
   render() {
+
     return (
       <div>
         <BrowserRouter>
@@ -23,15 +29,16 @@ export default class Routes extends Component {
                 path="/" 
                 render={() => {
                   if (this.state.user) {
-                    return <ChannelListPage />;
+                    return <ChannelListPage username={this.state.user}/>;
                   } else {
-                    return <LoginPage />;
+                    return <LoginPage setUser={this.setUser}/>;
                   }
                 }}
                 />
-              <Route exact path="/channel" component={ChannelListPage} />
-              <Route exact path="/channel/:channel" component={Channel} />
-              <Route exact path="/channel/:channel/chat" component={MessagePage} />
+              {/* <Route exact path="/channel" component={ChannelListPage} username={userName}/> */}
+              <Route exact path="/channel" render={(props) => <ChannelListPage username={this.state.user} {...props} /> }/> 
+              <Route exact path="/channel/:channel" render={(props) => <Channel username={this.state.user} {...props} /> } />
+              <Route exact path="/channel/:channel/chat" render={(props) => <MessagePage username={this.state.user} {...props} /> } />
               <Redirect to="/" />
             </Switch>
           </div>
