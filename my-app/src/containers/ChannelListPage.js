@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ChannelCard from './ChannelCard'
+import ChannelCard from '../components/ChannelCard'
 
 export default class ChannelList extends Component {
     constructor() {
@@ -19,7 +19,7 @@ export default class ChannelList extends Component {
   render() {
     return (
         <div>
-            <h1>Hello {this.props.username}</h1>
+            <h1>Hello {this.props.location.username}</h1>
             {this.state.channelArray.map(channel => {
                     return <ChannelCard channel={channel}/>
             })}

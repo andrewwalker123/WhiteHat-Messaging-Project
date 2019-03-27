@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 
 import  MessagePage  from './containers/messagePage';
-import LoginPage from './containers/loginPage';
-import ChannelList from './containers/channelList';
-import Channel from './containers/channelPage';
+import LoginPage from './containers/LoginPage';
+import ChannelListPage from './containers/ChannelListPage';
+import Channel from './containers/ChannelPage';
 
 export default class Routes extends Component {
 
@@ -23,12 +23,13 @@ export default class Routes extends Component {
                 path="/" 
                 render={() => {
                   if (this.state.user) {
-                    return <ChannelList />;
+                    return <ChannelListPage />;
                   } else {
                     return <LoginPage />;
                   }
                 }}
                 />
+              <Route exact path="/channel" component={ChannelListPage} />
               <Route exact path="/channel/:channel" component={Channel} />
               <Route exact path="/channel/:channel/chat" component={MessagePage} />
               <Redirect to="/" />
