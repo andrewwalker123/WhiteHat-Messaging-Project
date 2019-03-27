@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ChannelCard from '../components/ChannelCard'
+import Header from '../components/Header'
+import Body from '../components/Body'
 
 export default class ChannelListPage extends Component {
     constructor(props) {
@@ -18,11 +20,14 @@ export default class ChannelListPage extends Component {
     }
   render() {
     return (
-        <div>
-            <h1>Hello {this.props.location.username}</h1>
-            {this.state.channelArray.map(channel => {
+        <div className="bg-washed-blue">
+            <Header headerTitle='Channels'/>
+            <Body>
+                <h1>Hello {this.props.location.username}</h1>
+                {this.state.channelArray.map(channel => {
                     return <ChannelCard channel={channel} username={this.state.username}/>
-            })}
+                 })}
+            </Body>
         </div>
     )
   }
