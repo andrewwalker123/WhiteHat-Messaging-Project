@@ -14,7 +14,6 @@ class MessagePage extends Component {
   }
 
   render() {
-    console.log(this.state.messagesList)
     return (
       <div className="bg-washed-blue">
         <h1 className="white bg-blue w-100 sans-serif ma0 pa2 fixed pl3">Sky 1</h1>
