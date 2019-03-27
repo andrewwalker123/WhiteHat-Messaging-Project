@@ -1,16 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-
-class Channel extends Component {
-
-
-  render() {
+function Channel(){
     return (
-      <div class="bg-washed-blue">
-        <h1 class="white bg-blue w-100 sans-serif ma0 pa2 fixed pl3">Channel</h1>
+      <div className="bg-washed-blue">
+        <h1 className="white bg-blue w-100 sans-serif ma0 pa2 fixed pl3">Channel</h1>
       </div>
     );
-  }
 }
 
 export default Channel;

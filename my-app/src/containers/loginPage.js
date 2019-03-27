@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class LoginPage extends Component {
-
-
-  render() {
+function LoginPage () {
     return (
-      <div class="bg-washed-blue">
-        <h1 class="white bg-blue w-100 sans-serif ma0 pa2 fixed pl3">Login Page</h1>
+      <div className="bg-washed-blue">
+        <h1 className="white bg-blue w-100 sans-serif ma0 pa2 fixed pl3">Login Page</h1>
       </div>
     );
-  }
+  
 }
 
 export default LoginPage;
