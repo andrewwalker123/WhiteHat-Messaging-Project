@@ -20,27 +20,27 @@ export default class Routes extends Component {
 
     return (
       <div>
-        <BrowserRouter>
+        {this.state.user ? (
+          <BrowserRouter>
           <div>
             <Switch>
-              <Route
-                exact
-                path="/"
-                render={() => {
-                  if (this.state.user) {
-                    return <ChannelListPage username={this.state.user}/>;
-                  } else {
-                    return <LoginPage setUser={this.setUser}/>;
-                  }
-                }}
-                />
-              <Route exact path="/channel" render={(props) => <ChannelListPage username={this.state.user} {...props} /> }/>
-              <Route exact path="/channel/:channel" render={(props) => <Channel username={this.state.user} {...props} /> } />
-              <Route exact path="/channel/:channel/chat" render={(props) => <MessageView username={this.state.user} {...props} /> } />
+                <Route exact path="/channel" render={(props) => <ChannelListPage username={this.state.user} {...props} /> }/>
+                <Route exact path="/channel/:channel" render={(props) => <Channel username={this.state.user} {...props} /> } />
+                <Route exact path="/channel/:channel/chat" render={(props) => <MessageView username={this.state.user} {...props} /> } />
+              <Redirect to="/channel" />
+            </Switch>
+          </div>
+        </BrowserRouter>
+        ):(
+          <BrowserRouter>
+          <div>
+            <Switch>
+              <Route exact path="/"  render={(props) => <LoginPage setUser={this.setUser}/> }/>
               <Redirect to="/" />
             </Switch>
           </div>
         </BrowserRouter>
+        )}
       </div>
     );
   }
