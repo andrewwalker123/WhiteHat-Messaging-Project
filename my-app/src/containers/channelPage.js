@@ -1,12 +1,15 @@
 import React from 'react';
+import Header from '../components/Header'
+import Body from '../components/Body'
 
 const ChannelPage = (props) => {
   console.log(props)
     return (
-      <div>
-        <h2>{props.location.data.channel.channelName}</h2>
-        <img src={props.location.data.channel.channelIcon}></img>
-        <h1>{props.location.data.channel.programme.title}</h1>    
+      <div className="bg-washed-blue">
+          <Header headerTitle={props.location.data.channel.channelName} headerImage={props.location.data.channel.channelIcon}/>
+         <Body>
+           <h1>{props.location.data.channel.programme.description}</h1>  
+          </Body>
       </div>
     )
 }
