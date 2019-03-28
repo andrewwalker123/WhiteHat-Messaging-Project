@@ -6,7 +6,7 @@ import slugify from '../utils/slugify';
 
 export default class ChannelListPage extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             channelArray: [],
             username: this.props.username
@@ -22,7 +22,7 @@ export default class ChannelListPage extends Component {
 
   render() {
     return (
-        <div className="bg-washed-blue">
+        <div className="">
             <Header headerTitle='Channels'/>
             <Body>
                 <h1>Hello {this.state.username}</h1>
