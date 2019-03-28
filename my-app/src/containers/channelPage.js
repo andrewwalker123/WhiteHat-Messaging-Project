@@ -9,7 +9,7 @@ const ChannelPage = (props) => {
       <div className="bg-washed-blue">
           <Header headerTitle={channelName} headerImage={channelIcon}/>
          <Body>
-           <img src={contentUrl} height='50%' width='50%'></img>
+           <img src={contentUrl} height='50%' width='50%' alt="show-thumbnail"/>
            <h1>{title}</h1>
            <h2>{desc}</h2>
            <Link to={{pathname: `/channel/:${channelName}/chat`, data: props.location.data}}>
