@@ -16,8 +16,13 @@ class MessageList extends Component {
         timePosted: Date.now(),
         message: 'here is my message'
       }
-    ]
+    ],
+    scrollPosition: 0
   };
+componentDidUpdate() {
+
+  document.getElementById('chat').scrollIntoView(false)
+}
 
   handleSubmit = event => {
     event.preventDefault();
@@ -38,7 +43,7 @@ class MessageList extends Component {
     return (
       <div className="bg-washed-blue">
         <h1 className="white bg-blue w-100 sans-serif ma0 pa2 fixed pl3">Sky 1</h1>
-        <div className="sans-serif pt5 pb5 pl3 pr3 flex flex-column">
+        <div id="chat" className="sans-serif pt5 pb5 pl3 pr3 flex flex-column">
           <p className="">Welcome to the Sky 1 chat</p>
           {this.state.messagesList.map((messageInfo, index ) => {
             return <Message key={index} myUserName={this.props.username} messageInfo={messageInfo}/>
