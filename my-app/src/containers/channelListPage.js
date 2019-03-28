@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ChannelCard from '../components/channelCard'
 import Header from '../components/Header'
 import Body from '../components/Body'
+import slugify from '../utils/slugify';
 
 export default class ChannelListPage extends Component {
     constructor(props) {
@@ -18,6 +19,7 @@ export default class ChannelListPage extends Component {
             this.setState({channelArray: data})
         })
     }
+
   render() {
     return (
         <div className="bg-washed-blue">
@@ -25,7 +27,7 @@ export default class ChannelListPage extends Component {
             <Body>
                 <h1>Hello {this.state.username}</h1>
                 {this.state.channelArray.map(channel => {
-                    return <ChannelCard channel={channel} username={this.state.username}/>
+                    return <ChannelCard slug={slugify(channel.channelName)} channel={channel} username={this.state.username}/>
                  })}
             </Body>
         </div>

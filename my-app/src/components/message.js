@@ -3,11 +3,14 @@ import React, { Component } from 'react';
 class Message extends Component {
 
   convertTime = () => {
-    let date = new Date(this.props.messageInfo.timePosted);
+    let date = new Date(Number(this.props.messageInfo.timePosted));
     let hours = date.getHours();
     let minutes = date.getMinutes();
     if (minutes < 10) {
       minutes = "0" + minutes;
+    }
+    if (hours < 10) {
+      hours = "0" + hours;
     }
     return `${hours} : ${minutes}`
   };
