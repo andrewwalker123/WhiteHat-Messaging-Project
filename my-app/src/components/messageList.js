@@ -21,7 +21,7 @@ class MessageList extends Component {
   }
   componentDidMount(){
     this.state.socket.addEventListener('open', (event) => {
-      this.state.socket.send(`${this.state.user} User has joined the chat!`);
+      this.state.socket.send(`${this.state.user} has joined the chat!`);
     });
 
    this.state.socket.addEventListener('message', this.onMessage);
