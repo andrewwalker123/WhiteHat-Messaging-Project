@@ -1,10 +1,13 @@
 import React from 'react';
-import Header from '../components/Header'
-import Body from '../components/Body'
-import { Link } from 'react-router-dom'
+import Header from '../components/Header';
+import Body from '../components/Body';
+import { Link } from 'react-router-dom';
+import slugify from '../utils/slugify';
 
 const ChannelPage = (props) => {
-  const { channelName, channelIcon, programme: {contentUrl, title, desc} } = props.location.data.channel
+
+    const { channelName, channelIcon, programme: {contentUrl, title, desc} } = props.location.data.channel
+    const slugUrl = slugify(channelName)
     return (
       <div className="">
           <Header headerTitle={channelName} headerImage={channelIcon}/>
@@ -17,8 +20,7 @@ const ChannelPage = (props) => {
               <h1>Join Chat</h1>
             </div>
           </Link>
-          </Body>
       </div>
-    )
-}
+    )}
+
 export default ChannelPage
