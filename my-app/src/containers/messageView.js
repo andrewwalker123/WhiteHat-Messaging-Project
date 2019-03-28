@@ -4,7 +4,7 @@ import MessageList from "../components/messageList";
 export default class MessageView extends Component  {
   render(){
     return(
-      <MessageList username={this.props.username} />
+      <MessageList data={this.props}/>
     )
   }
 }
