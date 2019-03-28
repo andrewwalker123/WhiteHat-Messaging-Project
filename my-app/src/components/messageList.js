@@ -12,7 +12,7 @@ class MessageList extends Component {
     this.state = {
       newMessage: "",
       channelName: this.props.data.location.data.channelName,
-      user: this.props.data.username,
+      user: user,
       slug: slugify(channelName),
       socket: new WebSocket(`ws://sky-chat.whitechapeau.com/${slug}/${user}`),
       messagesList: []
@@ -21,14 +21,13 @@ class MessageList extends Component {
   }
   componentDidMount(){
     this.state.socket.addEventListener('open', (event) => {
-      this.state.socket.send('User has joined the chat!');
+      this.state.socket.send(`${this.state.user} User has joined the chat!`);
     });
 
    this.state.socket.addEventListener('message', this.onMessage);
   }
  
   onMessage = (evt) => {
-    console.log(evt.data)
     let [resName, resTime, resMessage] = evt.data.split('|')
     this.setState({messagesList: [...this.state.messagesList, {
       userName: resName,
