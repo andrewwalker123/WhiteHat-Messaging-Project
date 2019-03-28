@@ -12,12 +12,12 @@ const ChannelPage = (props) => {
            <img src={props.location.data.channel.programme.contentUrl} height='50%' width='50%'></img>
            <h1>{props.location.data.channel.programme.title}</h1>
            <h2>{props.location.data.channel.programme.desc}</h2>
-          </Body>
-          <Link to={{pathname: `/channel/:${props.location.data.channel.channelName}/chat`, data: props}}>
+           <Link to={{pathname: `/channel/:${props.location.data.channel.channelName}/chat`, data: props}}>
             <div>
               <h1>Join Chat</h1>
             </div>
           </Link>
+          </Body>
       </div>
     )
 }
