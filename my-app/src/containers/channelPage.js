@@ -12,15 +12,15 @@ const ChannelPage = (props) => {
       <div className="bg-washed-blue">
           <Header headerTitle={channelName} headerImage={channelIcon}/>
          <Body>
-           <img src={contentUrl} height='50%' width='50%'></img>
+           <div>
+             <img src={contentUrl} height='50%' width='50%'></img>
+           </div>
            <h1>{title}</h1>
            <h2>{desc}</h2>
-           <Link to={{pathname: `/channel/${slugUrl}/chat`, data: props.location.data.channel}}>
-            <div>
-              <h1>Join Chat</h1>
-            </div>
-          </Link>
           </Body>
+          <Link to={{pathname: `/channel/${slugUrl}/chat`, data: props.location.data.channel}}>
+             <button className="bg-green white pa3 w-100 sans-serif ma0 ba fixed" style={{bottom:0}}>JOIN CHAT</button>
+          </Link>
       </div>
     )}
 
