@@ -9,13 +9,11 @@ class MessageList extends Component {
       {
       userName: 'Ralf',
       timePosted: Date.now(),
-      myMessage: false,
       message: 'here is someone\'s message'
     },
       {
         userName: 'Caroline',
         timePosted: Date.now(),
-        myMessage: true,
         message: 'here is my message'
       }
     ]
@@ -23,12 +21,13 @@ class MessageList extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    {this.state.newMessage && 
     this.setState({messagesList: [...this.state.messagesList, {
-        userName: 'Caroline',
+        userName: this.props.username,
         timePosted: Date.now(),
-        myMessage: true,
         message: this.state.newMessage
       }]})
+    }
   };
 
   handleChange = (event) => {
@@ -42,7 +41,7 @@ class MessageList extends Component {
         <div className="sans-serif pt5 pb5 pl3 pr3 flex flex-column">
           <p className="">Welcome to the Sky 1 chat</p>
           {this.state.messagesList.map((messageInfo, index ) => {
-            return <Message key={index} messageInfo={messageInfo}/>
+            return <Message key={index} myUserName={this.props.username} messageInfo={messageInfo}/>
           })}
         </div>
         <div>
