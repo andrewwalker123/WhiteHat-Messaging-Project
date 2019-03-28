@@ -23,7 +23,7 @@ export default class LoginPage extends Component {
             <div className="bg-washed-blue">
                  <Header headerTitle='Login'/>
                  <Body>
-                     <div className='v-mid bg-light-blue mw7 center pa4 br2-ns ba b--black-10 items-centre'>
+                     <div className='flex flex-column justify-center bg-light-blue mw7 center pa4 br2 ba b--black-10'>
                     <p className='pa0 f5 f4-ns mb3 black-80'>Welcome to Sky Chat. Enter your name below and start chatting.</p>
                     <div className='pv4'>
                     <input type='text'className="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns" placeholder="Username" value={this.state.username} onChange={this.onChangeHandler}></input>
