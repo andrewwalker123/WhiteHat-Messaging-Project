@@ -16,9 +16,12 @@ class MessageList extends Component {
       slug: slugify(channelName),
       socket: new WebSocket(`ws://sky-chat.whitechapeau.com/${slug}/${user}`),
       messagesList: []
-    };
-
+    }
   }
+  componentDidUpdate() {
+    document.getElementById('chat').scrollIntoView(false)
+  }
+
   componentDidMount(){
     this.state.socket.addEventListener('open', (event) => {
       this.state.socket.send(`${this.state.user} has joined the chat!`);
@@ -26,19 +29,19 @@ class MessageList extends Component {
 
    this.state.socket.addEventListener('message', this.onMessage);
   }
- 
+
   onMessage = (evt) => {
     let [resName, resTime, resMessage] = evt.data.split('|')
     this.setState({messagesList: [...this.state.messagesList, {
       userName: resName,
       timePosted: resTime,
-      message: resMessage 
+      message: resMessage
     }]})
   }
 
   handleSubmit = event => {
     event.preventDefault();
-    {this.state.newMessage && 
+    {this.state.newMessage &&
     this.state.socket.send(this.state.newMessage)
     }
     this.setState({newMessage: ""})
@@ -50,9 +53,9 @@ class MessageList extends Component {
 
   render() {
     return (
-      <div className="bg-washed-blue">
+      <div >
         <Header headerTitle={this.state.channelName} headerImage={this.props.data.location.data.channelIcon}/>
-        <div className="sans-serif pt5 pb5 pl3 pr3 flex flex-column">
+        <div id="chat" className="sans-serif pt5 pb5 pl3 pr3 flex flex-column">
           <p className="">{`Welcome to the ${this.state.channelName} chat`}</p>
           {this.state.messagesList.map((messageInfo, index ) => {
             if(Number(messageInfo.timePosted)){
