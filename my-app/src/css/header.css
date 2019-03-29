@@ -1,3 +1,14 @@
 .gradient {
     background-image: linear-gradient(to bottom right, #7530ff, #1467d4, #74c3ff);
+    align-items: center;
+}
+
+.home-button {
+    text-decoration: none;
+}
+
+.title-centered {
+    flex-grow: 1;
+    text-align: center;
+
 }
