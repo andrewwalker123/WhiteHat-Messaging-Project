@@ -11,10 +11,23 @@
     width: 50%;
     height: auto;
     align-self: center;
+    margin-right: 10px;
 }
 
 
 .container {
     width: 40%;
+}
+
+@media(max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+    }
+    .image-wrapper {
+        width: 100%;
+    }
+    .container {
+        width: 100%;
+    }
 }
 
