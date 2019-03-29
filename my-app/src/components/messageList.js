@@ -6,15 +6,12 @@ import { withRouter } from 'react-router-dom';
 
 class MessageList extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     let intervalId = 0;
     const channelName = this.props.data.location.data.channelName;
     const user = this.props.data.username;
     const slug = slugify(channelName);
-    const timeLeftSecs =
-      (Date.parse(new Date(this.props.data.location.data.programme.stop)) -
-        Date.parse(new Date())) /
-      1000;
+    const timeLeftSecs = (Date.parse(new Date(this.props.data.location.data.programme.stop)) -Date.parse(new Date())) / 1000;
     this.state = {
       newMessage: '',
       channelName: this.props.data.location.data.channelName,
@@ -24,15 +21,10 @@ class MessageList extends Component {
       messagesList: [],
       secondsLeft: 0,
       minutesLeft: 0,
-      time: timeLeftSecs,
-    };
-  }
-
-  componentDidMount() {
-    this.state.socket.addEventListener('open', event => {
-      messagesList: []
+      time: timeLeftSecs
     }
   }
+
   componentDidUpdate() {
     document.getElementById('chat').scrollIntoView(false)
   }
@@ -48,7 +40,7 @@ class MessageList extends Component {
   }
   componentWillUnmount() {
     clearInterval(this.intervalId);
-
+  }
   onMessage = (evt) => {
     let [resName, resTime, resMessage] = evt.data.split('|')
     this.setState({messagesList: [...this.state.messagesList, {
@@ -72,20 +64,6 @@ class MessageList extends Component {
     }
   };
 
-  onMessage = evt => {
-    let [resName, resTime, resMessage] = evt.data.split('|');
-    this.setState({
-      messagesList: [
-        ...this.state.messagesList,
-        {
-          userName: resName,
-          timePosted: resTime,
-          message: resMessage,
-        },
-      ],
-    });
-  };
-
   handleSubmit = event => {
     event.preventDefault();
     {this.state.newMessage &&
@@ -101,17 +79,6 @@ class MessageList extends Component {
   render() {
     return (
       <div className="bg-washed-blue">
-        {console.log(this.props.data.location.data.programme.stop)}
-        {console.log(
-          Date.parse(new Date(this.props.data.location.data.programme.stop)) -
-            Date.parse(new Date()),
-        )}
-        <Header
-          headerTitle={this.state.channelName}
-          headerImage={this.props.data.location.data.channelIcon}
-        />
-        <div className="sans-serif pt5 pb5 pl3 pr3 flex flex-column">
-      <div >
         <Header headerTitle={this.state.channelName} headerImage={this.props.data.location.data.channelIcon}/>
         <div id="chat" className="sans-serif pt5 pb5 pl3 pr3 flex flex-column">
           <p className="">{`Welcome to the ${this.state.channelName} chat`}</p>
