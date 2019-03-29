@@ -53,7 +53,7 @@ class MessageList extends Component {
 
   render() {
     return (
-      <div className="bg-washed-blue">
+      <div >
         <Header headerTitle={this.state.channelName} headerImage={this.props.data.location.data.channelIcon}/>
         <div id="chat" className="sans-serif pt5 pb5 pl3 pr3 flex flex-column">
           <p className="">{`Welcome to the ${this.state.channelName} chat`}</p>
