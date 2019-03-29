@@ -30,6 +30,15 @@ class MessageList extends Component {
 
   componentDidMount() {
     this.state.socket.addEventListener('open', event => {
+      messagesList: []
+    }
+  }
+  componentDidUpdate() {
+    document.getElementById('chat').scrollIntoView(false)
+  }
+
+  componentDidMount(){
+    this.state.socket.addEventListener('open', (event) => {
       this.state.socket.send(`${this.state.user} has joined the chat!`);
     });
 
@@ -39,6 +48,14 @@ class MessageList extends Component {
   }
   componentWillUnmount() {
     clearInterval(this.intervalId);
+
+  onMessage = (evt) => {
+    let [resName, resTime, resMessage] = evt.data.split('|')
+    this.setState({messagesList: [...this.state.messagesList, {
+      userName: resName,
+      timePosted: resTime,
+      message: resMessage
+    }]})
   }
 
   timer = () => {
@@ -71,8 +88,8 @@ class MessageList extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    {
-      this.state.newMessage && this.state.socket.send(this.state.newMessage);
+    {this.state.newMessage &&
+    this.state.socket.send(this.state.newMessage)
     }
     this.setState({ newMessage: '' });
   };
@@ -94,6 +111,9 @@ class MessageList extends Component {
           headerImage={this.props.data.location.data.channelIcon}
         />
         <div className="sans-serif pt5 pb5 pl3 pr3 flex flex-column">
+      <div >
+        <Header headerTitle={this.state.channelName} headerImage={this.props.data.location.data.channelIcon}/>
+        <div id="chat" className="sans-serif pt5 pb5 pl3 pr3 flex flex-column">
           <p className="">{`Welcome to the ${this.state.channelName} chat`}</p>
           {this.state.messagesList.map((messageInfo, index) => {
             if (Number(messageInfo.timePosted)) {
