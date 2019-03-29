@@ -51,12 +51,13 @@ class MessageList extends Component {
   }
 
   timer = () => {
-    let secs = this.state.time % 60 ;
-    let minutes = Math.floor(secs / 60);
+    let timeLeft = this.state.time
+    let secs = timeLeft % 60 ;
+    let minutes = Math.floor(timeLeft / 60);
     this.setState({
       minutesLeft: minutes,
       secondsLeft: secs <10 ? '0' + secs : secs,
-      time: secs - 1,
+      time: timeLeft - 1,
     });
     if (this.state.time <= 0) {
       return this.props.history.push('/channel');
@@ -77,7 +78,7 @@ class MessageList extends Component {
 
   render() {
     return (
-      <div className="bg-washed-blue">
+      <div>
         <Header headerTitle={this.state.channelName} headerImage={this.props.data.location.data.channelIcon}/>
         <div id="chat" className="sans-serif pt5 pb5 pl3 pr3 flex flex-column">
           <p className="">{`Welcome to the ${this.state.channelName} chat`}</p>
