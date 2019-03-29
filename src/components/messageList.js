@@ -51,12 +51,13 @@ class MessageList extends Component {
   }
 
   timer = () => {
-    let secs = this.state.time % 60 ;
-    let minutes = Math.floor(secs / 60);
+    let timeLeft = this.state.time
+    let secs = timeLeft % 60 ;
+    let minutes = Math.floor(timeLeft / 60);
     this.setState({
       minutesLeft: minutes,
       secondsLeft: secs <10 ? '0' + secs : secs,
-      time: secs - 1,
+      time: timeLeft - 1,
     });
     if (this.state.time <= 0) {
       return this.props.history.push('/channel');
