@@ -1,10 +1,12 @@
 import React from 'react';
+import body from '../css/body.css';
+
 
 const Body = (props) => {
     return (
-        <div className="sans-serif pt5 pb5 pl3 pr3 flex flex-column" style={{minHeight: '95vh'}}>
+        <div className="gradient-body sans-serif pb5 pl3 pr3 flex flex-column" style={{minHeight: '95vh'}}>
         {props.children}
         </div>
     )
-}
+};
 export default Body;
