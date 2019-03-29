@@ -25,7 +25,7 @@ export default class LoginPage extends Component {
             <div className="">
                  <Header headerTitle='Login'/>
                  <Body>
-                     <div className='absolute-center flex flex-column justify-center tc bg-blue mw7 center pa4 br2 ba b--black-10'>
+                     <div className='absolute-center flex flex-column justify-center tc bg-blue mw6 w-90 center pa4 br2 ba b--black-10'>
                        <p className='pa0 f5 white f4-ns mb3 black-80'>Welcome to Sky Chat. Enter your name below and start chatting.</p>
 
                        <div className='pv4'>
